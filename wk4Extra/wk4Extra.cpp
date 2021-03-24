@@ -15,7 +15,12 @@ int main()
 
     MaxD = 0; MaxR = 0;
     //물체를 지면과 +|세타| 각도의 방향으로 던졌다. 중력가속도는 -10m/s로 계산
-    //rad = 30; //30도
+    ofstream outText("parabolic motion equation.txt");
+    if (!outText) {
+        cout << " Cannot open your file. \n";
+        return 2;
+    }
+
     for (int i = 0; i < 90; i++) {
         v = 30; // 30m/s
         rad[i] = i + 1;
@@ -32,11 +37,13 @@ int main()
             MaxD = d[i];
             MaxR = rad[i];
         }
+        outText << rad[i] << " " << d[i] << endl;
     }
    // system("cls");
-    cout << "최대 거리 Max d = " << MaxD << endl;
-    cout << "최대 거리 Max radian = " << MaxR << endl;
+    cout << "최대 거리 = " << MaxD <<"m"<< endl;
+    cout << "최대 거리일 때 지면과의 각도 = " << MaxR <<"radian"<< endl;
 
-    
+    outText.close();
+
     return 0;
 }
