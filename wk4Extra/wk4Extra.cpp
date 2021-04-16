@@ -20,9 +20,11 @@ int main()
         cout << " Cannot open your file. \n";
         return 2;
     }
-
+    cout << "속도를 입력하시오 : ";
+    cin >> v;
     for (int i = 0; i < 90; i++) {
-        v = 30; // 30m/s
+        //v = 30; // 테스트 용 30m/s
+       
         rad[i] = i + 1;
         vV = v * sin(rad[i] * PI / 180); // v의 수직 성분 = v sin(radian)
         t = vV / 10; // v가 0이 되는 t는 vsin(@)를 중력가속도로 나눈 것 
